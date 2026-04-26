@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merihan Ewees — Medical Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08070f;--surface:#0f0d1a;--card:#161424;--border:rgba(255,255,255,0.07);--lime:#c8f135;--lime2:#deff6e;--violet:#7c4dff;--violet2:#b39dff;--pink:#ff4d8d;--cyan:#00e5cc;--amber:#ffb830;--white:#ffffff;--muted:#8b87a8;--text:#e8e4ff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--bg);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--violet);border-radius:2px;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:1.1rem 4rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,7,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--white);}
+.nav-logo span{background:linear-gradient(90deg,var(--lime),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--lime);}
+
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:10rem 5rem 6rem;}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:float 8s ease-in-out infinite;}
+.blob1{width:600px;height:600px;top:-100px;left:-200px;background:radial-gradient(circle,rgba(124,77,255,0.3),transparent 65%);animation-delay:0s;}
+.blob2{width:500px;height:500px;bottom:-100px;right:-100px;background:radial-gradient(circle,rgba(0,229,204,0.2),transparent 65%);animation-delay:-3s;}
+.blob3{width:400px;height:400px;top:40%;left:40%;background:radial-gradient(circle,rgba(255,77,141,0.15),transparent 65%);animation-delay:-6s;}
+@keyframes float{0%,100%{transform:translateY(0px);}50%{transform:translateY(-30px);}}
+
+.hero-inner{position:relative;z-index:2;max-width:900px;}
+.hero-tag{display:inline-flex;align-items:center;gap:0.6rem;background:rgba(200,241,53,0.08);border:1px solid rgba(200,241,53,0.25);color:var(--lime);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;padding:0.4rem 1rem;margin-bottom:2.5rem;animation:up 0.6s ease both;}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--lime);display:block;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+.hero-h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(3.5rem,8vw,7rem);line-height:0.95;color:var(--white);letter-spacing:-0.02em;animation:up 0.6s 0.08s ease both;}
+.grad{background:linear-gradient(135deg,var(--lime) 0%,var(--cyan) 50%,var(--violet2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200%;animation:shimmer 4s linear infinite;}
+@keyframes shimmer{0%{background-position:0%;}100%{background-position:200%;}}
+.outline{-webkit-text-stroke:1px rgba(255,255,255,0.3);-webkit-text-fill-color:transparent;}
+
+.hero-sub{font-size:1.05rem;font-style:italic;color:rgba(232,228,255,0.5);margin-top:1.5rem;animation:up 0.6s 0.16s ease both;}
+.hero-desc{font-size:0.95rem;line-height:1.85;color:rgba(232,228,255,0.55);max-width:540px;margin-top:1.5rem;animation:up 0.6s 0.22s ease both;}
+.hero-desc strong{color:var(--lime);font-weight:500;}
+
+.hero-pills{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:2rem;animation:up 0.6s 0.28s ease both;}
+.pill{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.35rem 0.9rem;border-radius:999px;border:1px solid rgba(255,255,255,0.1);color:var(--muted);transition:all 0.25s;}
+.pill:hover{border-color:var(--lime);color:var(--lime);}
+.pill-lit{border-color:rgba(200,241,53,0.3);color:var(--lime2);}
+
+.hero-ctas{display:flex;gap:1rem;margin-top:2.5rem;animation:up 0.6s 0.34s ease both;}
+.btn{font-family:'Syne',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.9rem 2rem;text-decoration:none;transition:all 0.25s;display:inline-block;border-radius:4px;}
+.btn-lime{background:var(--lime);color:#08070f;}
+.btn-lime:hover{background:var(--lime2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,241,53,0.3);}
+.btn-ghost{border:1px solid rgba(255,255,255,0.15);color:var(--muted);}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime);}
+
+.hero-stats{display:flex;gap:0;margin-top:4rem;border-top:1px solid var(--border);padding-top:2.5rem;animation:up 0.6s 0.4s ease both;}
+.hstat{padding-right:3rem;border-right:1px solid var(--border);margin-right:3rem;}
+.hstat:last-child{border:none;margin:0;padding:0;}
+.hstat-n{font-family:'Syne',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,var(--lime),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hstat-l{font-size:0.7rem;color:var(--muted);margin-top:0.3rem;}
+
+.marquee-wrap{overflow:hidden;white-space:nowrap;padding:1.2rem 0;background:var(--lime);}
+.marquee-track{display:inline-block;animation:marquee 20s linear infinite;}
+.marquee-track span{font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:#08070f;margin:0 2rem;}
+.marquee-track span::before{content:'✦ ';opacity:0.4;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+.about{padding:7rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;background:var(--surface);border-top:1px solid var(--border);}
+.sec-tag{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--lime);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem;}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--lime);}
+.sec-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);line-height:1.1;color:var(--white);margin-bottom:1.5rem;}
+.sec-h em{font-style:italic;font-weight:400;color:var(--violet2);}
+.about-body{font-size:0.9rem;line-height:1.95;color:rgba(232,228,255,0.55);}
+.about-body p+p{margin-top:1rem;}
+.about-body strong{color:var(--lime);font-weight:500;}
+
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.exp-card{background:var(--card);padding:1.5rem;transition:background 0.25s;position:relative;overflow:hidden;}
+.exp-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:width 0.35s;}
+.exp-card:nth-child(1)::after,.exp-card:nth-child(2)::after{background:var(--lime);}
+.exp-card:nth-child(3)::after,.exp-card:nth-child(4)::after{background:var(--cyan);}
+.exp-card:nth-child(5)::after,.exp-card:nth-child(6)::after{background:var(--pink);}
+.exp-card:hover{background:#1c1a2e;}
+.exp-card:hover::after{width:100%;}
+.exp-icon{font-size:1.2rem;margin-bottom:0.6rem;display:block;}
+.exp-name{font-family:'Syne',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;}
+.exp-desc{font-size:0.72rem;color:var(--muted);line-height:1.6;}
+
+.work{padding:7rem 5rem;background:var(--bg);border-top:1px solid var(--border);}
+.work-intro{font-size:0.9rem;color:var(--muted);max-width:500px;margin-bottom:4rem;line-height:1.7;}
+.work-intro strong{color:var(--text);}
+
+.cat-row{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;margin-top:0.5rem;}
+.cat-pill{font-family:'Syne',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:999px;}
+.cp-health{background:rgba(200,241,53,0.1);color:var(--lime);border:1px solid rgba(200,241,53,0.25);}
+.cp-pharma{background:rgba(255,77,141,0.1);color:var(--pink);border:1px solid rgba(255,77,141,0.25);}
+.cp-device{background:rgba(0,229,204,0.1);color:var(--cyan);border:1px solid rgba(0,229,204,0.25);}
+.cp-arabic{background:rgba(255,184,48,0.1);color:var(--amber);border:1px solid rgba(255,184,48,0.25);}
+.cat-line{flex:1;height:1px;background:var(--border);}
+.cat-count{font-size:0.62rem;color:var(--muted);}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:4rem;}
+.cards.one-col{grid-template-columns:1fr;}
+
+.acard{background:var(--card);padding:2rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background 0.25s,transform 0.25s;}
+.acard:hover{background:#1c1a2e;transform:translateY(-3px);}
+.acard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.3s;}
+.acard:hover::before{opacity:1;}
+.acard.health::before{background:linear-gradient(90deg,var(--lime),var(--cyan));}
+.acard.pharma::before{background:linear-gradient(90deg,var(--pink),var(--amber));}
+.acard.device::before{background:linear-gradient(90deg,var(--cyan),var(--violet));}
+.acard.arabic::before{background:linear-gradient(90deg,var(--amber),var(--lime));}
+
+.badge{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;padding:0.22rem 0.65rem;width:fit-content;margin-bottom:1rem;border-radius:3px;}
+.bh{background:rgba(200,241,53,0.08);color:var(--lime);}
+.bp{background:rgba(255,77,141,0.08);color:var(--pink);}
+.bd{background:rgba(0,229,204,0.08);color:var(--cyan);}
+.ba{background:rgba(255,184,48,0.08);color:var(--amber);}
+.lang-dot{font-size:0.5rem;background:currentColor;padding:0.1rem 0.3rem;border-radius:2px;opacity:0.6;}
+
+.a-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;line-height:1.4;color:var(--white);margin-bottom:1rem;}
+.a-title.rtl{direction:rtl;text-align:right;font-size:1.05rem;}
+
+.excerpt{background:rgba(255,255,255,0.03);border-left:2px solid;padding:1rem 1.1rem;margin-bottom:1.2rem;font-size:0.78rem;line-height:1.82;color:rgba(232,228,255,0.6);flex-grow:1;font-style:italic;}
+.excerpt.eh{border-color:rgba(200,241,53,0.4);}
+.excerpt.ep{border-color:rgba(255,77,141,0.4);}
+.excerpt.ed{border-color:rgba(0,229,204,0.4);}
+.excerpt.ea{border-color:rgba(255,184,48,0.4);direction:rtl;text-align:right;font-style:normal;}
+.excerpt p+p{margin-top:0.7rem;}
+.excerpt ol,.excerpt ul{padding-left:1.2rem;margin-top:0.4rem;}
+.excerpt li{margin-bottom:0.4rem;}
+.excerpt strong{font-weight:600;font-style:normal;color:var(--white);}
+
+.a-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:auto;}
+.atag{font-size:0.58rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:0.18rem 0.5rem;border-radius:2px;}
+
+.value{padding:5rem;background:linear-gradient(135deg,#0f0a2e 0%,#0a1a2e 50%,#0f0d1a 100%);border-top:1px solid var(--border);display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center;}
+.value-pre{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.8rem;}
+.value-h{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;line-height:1.3;color:var(--white);}
+.value-h span{background:linear-gradient(135deg,var(--lime),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.value-body{font-size:0.85rem;color:rgba(232,228,255,0.45);line-height:1.85;margin-top:1rem;}
+.pillars{display:flex;flex-direction:column;gap:0.7rem;}
+.pillar{padding:1rem 1.2rem;border:1px solid var(--border);border-left:3px solid;transition:all 0.25s;background:rgba(255,255,255,0.02);}
+.pillar:nth-child(1){border-left-color:var(--lime);}
+.pillar:nth-child(2){border-left-color:var(--cyan);}
+.pillar:nth-child(3){border-left-color:var(--pink);}
+.pillar:nth-child(4){border-left-color:var(--violet2);}
+.pillar:hover{background:rgba(255,255,255,0.04);}
+.pillar-t{font-family:'Syne',sans-serif;font-weight:600;font-size:0.76rem;color:var(--text);margin-bottom:0.2rem;}
+.pillar-s{font-size:0.67rem;color:var(--muted);}
+
+.credentials{padding:7rem 5rem;background:var(--surface);border-top:1px solid var(--border);}
+.cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:3rem;}
+.cred-card{background:var(--card);padding:1.8rem;transition:background 0.25s;border-bottom:2px solid transparent;}
+.cred-card:hover{background:#1c1a2e;}
+.cred-card:nth-child(1):hover,.cred-card:nth-child(2):hover{border-bottom-color:var(--lime);}
+.cred-card:nth-child(3):hover,.cred-card:nth-child(4):hover{border-bottom-color:var(--cyan);}
+.cred-card:nth-child(5):hover,.cred-card:nth-child(6):hover{border-bottom-color:var(--pink);}
+.cred-card:nth-child(7):hover,.cred-card:nth-child(8):hover{border-bottom-color:var(--violet2);}
+.cred-yr{font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:rgba(255,255,255,0.06);display:block;margin-bottom:0.5rem;line-height:1;}
+.cred-t{font-family:'Syne',sans-serif;font-weight:600;font-size:0.76rem;color:var(--white);margin-bottom:0.3rem;line-height:1.4;}
+.cred-p{font-size:0.67rem;color:var(--muted);font-style:italic;}
+
+.skills{padding:2.5rem 5rem;background:linear-gradient(90deg,var(--violet),var(--pink));display:flex;align-items:center;gap:3rem;flex-wrap:wrap;}
+.skills-lbl{font-family:'Syne',sans-serif;font-weight:700;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);white-space:nowrap;}
+.stags{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.stag{background:rgba(255,255,255,0.12);color:var(--white);padding:0.3rem 0.85rem;font-size:0.68rem;border-radius:999px;transition:background 0.2s;}
+.stag:hover{background:rgba(255,255,255,0.25);}
+
+.contact{padding:8rem 5rem;background:var(--bg);text-align:center;border-top:1px solid var(--border);position:relative;overflow:hidden;}
+.contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,77,255,0.12),transparent 65%);pointer-events:none;}
+.contact-inner{position:relative;z-index:2;}
+.contact-pre{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--lime);margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;gap:0.6rem;}
+.contact-pre::before,.contact-pre::after{content:'';width:30px;height:1px;background:var(--lime);}
+.contact-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;color:var(--white);margin-bottom:1.5rem;letter-spacing:-0.02em;}
+.contact-h span{background:linear-gradient(135deg,var(--lime),var(--cyan),var(--violet2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.contact-body{font-size:0.9rem;color:var(--muted);max-width:480px;margin:0 auto 3rem;line-height:1.85;}
+.contact-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
+.clink{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.7rem 1.5rem;border:1px solid var(--border);border-radius:4px;transition:all 0.25s;}
+.clink:hover{border-color:var(--lime);color:var(--lime);background:rgba(200,241,53,0.05);}
+
+footer{padding:1.5rem 5rem;background:var(--surface);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:0.65rem;letter-spacing:0.07em;color:var(--muted);}
+footer a{color:rgba(200,241,53,0.5);text-decoration:none;}
+
+@keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:960px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{padding:7rem 1.8rem 4rem;}
+  .hero-stats{flex-wrap:wrap;gap:2rem;}
+  .hstat{border:none;margin:0;padding:0;}
+  .about{grid-template-columns:1fr;padding:4rem 1.8rem;gap:3rem;}
+  .work{padding:4rem 1.8rem;}
+  .cards{grid-template-columns:1fr;}
+  .value{grid-template-columns:1fr;padding:3rem 1.8rem;gap:3rem;}
+  .credentials{padding:4rem 1.8rem;}
+  .cred-grid{grid-template-columns:1fr 1fr;}
+  .skills{padding:2rem 1.8rem;}
+  .contact{padding:5rem 1.8rem;}
+  footer{padding:1.4rem 1.8rem;flex-direction:column;gap:0.7rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Merihan <span>Ewees</span></span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#contact">Hire Me</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Available for new projects</div>
+    <h1 class="hero-h1">I write <span class="grad">medicine</span><br>people actually <span class="outline">read.</span></h1>
+    <p class="hero-sub">Pharmacist. Writer. The rare both.</p>
+    <p class="hero-desc">Most medical content is either <strong>accurate but boring</strong> or engaging but wrong. I spent years in pharmacies and hospitals so you don't have to choose. Your audience gets content that's clinically sound <strong>and</strong> impossible to put down.</p>
+    <div class="hero-pills">
+      <span class="pill pill-lit">🇦🇪 UAE Healthcare</span>
+      <span class="pill pill-lit">💊 Pharma & OTC</span>
+      <span class="pill pill-lit">🩹 Medical Devices</span>
+      <span class="pill">Arabic — Native</span>
+      <span class="pill">English — Highly Proficient</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#work" class="btn btn-lime">See My Work</a>
+      <a href="#contact" class="btn btn-ghost">Let's Talk →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">8+</span><p class="hstat-l">Published Articles</p></div>
+      <div class="hstat"><span class="hstat-n">3</span><p class="hstat-l">Client Verticals</p></div>
+      <div class="hstat"><span class="hstat-n">2</span><p class="hstat-l">Languages</p></div>
+      <div class="hstat"><span class="hstat-n">Rx</span><p class="hstat-l">Pharmacy Degree</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Medical Writing</span><span>Arabic SEO</span><span>Patient Education</span><span>Pharma Content</span><span>HCP Communications</span><span>Wound Care</span><span>Clinical Accuracy</span><span>Brand Voice</span><span>Evidence-Based</span><span>Medical Writing</span><span>Arabic SEO</span><span>Patient Education</span><span>Pharma Content</span><span>HCP Communications</span><span>Wound Care</span><span>Clinical Accuracy</span><span>Brand Voice</span><span>Evidence-Based</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div>
+    <p class="sec-tag">The person behind the words</p>
+    <h2 class="sec-h">Not just a writer.<br><em>A pharmacist</em><br>who writes.</h2>
+    <div class="about-body">
+      <p>Here's what most medical writers can't offer: I've <strong>stood at the dispensing counter</strong>, counselled real patients, reviewed drug therapy plans, and trained at a poison control center. I know what it feels like when medical information is unclear — because I've seen the consequences firsthand.</p>
+      <p>Now I translate that clinical depth into content that actually moves people. Whether it's a patient Googling their symptoms at midnight, a doctor opening an HCP portal, or a traveler in a foreign airport feeling unwell — I write for the moment they need clarity most.</p>
+      <p>I produce <strong>Arabic and English content natively</strong> — not translated, not adapted. Written fresh in each language, for each audience, from scratch.</p>
+    </div>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card"><span class="exp-icon">🔬</span><p class="exp-name">Evidence-Based</p><p class="exp-desc">Every claim traceable to clinical guidelines or peer-reviewed literature.</p></div>
+    <div class="exp-card"><span class="exp-icon">🌐</span><p class="exp-name">Arabic SEO</p><p class="exp-desc">Keywords embedded so naturally, your reader never feels the SEO.</p></div>
+    <div class="exp-card"><span class="exp-icon">💊</span><p class="exp-name">Pharma Copy</p><p class="exp-desc">OTC articles, HCP portals, and branded content that stays compliant.</p></div>
+    <div class="exp-card"><span class="exp-icon">🏥</span><p class="exp-name">Brand Voice</p><p class="exp-desc">I write like your brand — not like a textbook.</p></div>
+    <div class="exp-card"><span class="exp-icon">✍️</span><p class="exp-name">Patient-First</p><p class="exp-desc">I ask: would a worried patient understand this at 2am? If not, I rewrite it.</p></div>
+    <div class="exp-card"><span class="exp-icon">📋</span><p class="exp-name">Zero Guesswork</p><p class="exp-desc">Self-audited before delivery. No unverified claims ever leave my desk.</p></div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <p class="sec-tag">What I've built</p>
+  <h2 class="sec-h" style="margin-bottom:0.5rem;">Content that <em style="color:var(--lime);font-style:italic;">performs</em></h2>
+  <p class="work-intro">Below is a selection of published work across healthcare, pharma, and medical devices. <strong>The excerpts are taken directly from each article</strong> — what you read is exactly what went live.</p>
+
+  <div class="cat-row">
+    <span class="cat-pill cp-health">01 — Healthcare & Patient Education</span>
+    <span class="cat-line"></span><span class="cat-count">1 piece</span>
+  </div>
+  <div class="cards one-col" style="margin-bottom:4rem;">
+    <div class="acard health">
+      <div class="badge bh">Patient Decision Guide <span class="lang-dot">EN</span></div>
+      <h3 class="a-title">Medical Center or Hospital: Which Is the Right Choice for You?</h3>
+      <div class="excerpt eh">
+        <p>This is a question many people ask in moments of worry. In reality, many conditions that send people rushing to the emergency room can be safely and efficiently managed in a fully equipped medical center, saving time, reducing costs, and avoiding unnecessary stress.</p>
+        <p>The difference between a medical center and a hospital is not about the quality of care, but about the nature and complexity of the condition. For health issues that do not require admission, major surgery, or intensive monitoring, a nearby medical center is often the most appropriate and fastest option.</p>
+        <p>This treatment journey is supported by a unified electronic medical record system across branches. What is documented for you today at one location is available to your doctor tomorrow at any other branch, as if you never left your usual clinic.</p>
+      </div>
+      <div class="a-tags"><span class="atag">UAE Healthcare Brand</span><span class="atag">Patient Decision</span><span class="atag">SEO</span></div>
+    </div>
+  </div>
+
+  <div class="cat-row">
+    <span class="cat-pill cp-pharma">02 — Pharmaceutical Content</span>
+    <span class="cat-line"></span><span class="cat-count">3 pieces</span>
+  </div>
+  <div class="cards" style="margin-bottom:4rem;">
+    <div class="acard pharma">
+      <div class="badge bp">Pharma Product Article <span class="lang-dot">EN</span></div>
+      <h3 class="a-title">Migraine vs. Headache: How to Tell the Difference and Find Relief</h3>
+      <div class="excerpt ep">
+        <p>Is it just a headache or something more? When a sudden pounding starts and stops you in your tracks, it's natural to wonder if you're dealing with a simple headache or a migraine attack.</p>
+        <p>Understanding the difference between headache and migraine is key to finding fast, effective headache and migraine relief, especially when your day can't slow down.</p>
+        <p>Fast-acting options containing <strong>ibuprofen 400mg</strong> can help provide reliable pain relief when you need it most. When taken on an empty stomach, the medicine reaches peak levels in the blood in about 30 minutes, helping you feel relief sooner.</p>
+      </div>
+      <div class="a-tags"><span class="atag">Pharma OTC Brand</span><span class="atag">Neurology</span><span class="atag">Branded Content</span></div>
+    </div>
+    <div class="acard pharma">
+      <div class="badge bp">Short-Form Content <span class="lang-dot">EN</span></div>
+      <h3 class="a-title">Headache at Work? Try These Simple Steps First</h3>
+      <div class="excerpt ep">
+        <ol>
+          <li>Drink water to stay hydrated and help ease headache discomfort.</li>
+          <li>Take a short break from screens to reduce eye strain and mental fatigue.</li>
+          <li>Stretch your neck and shoulders to relieve muscle tension.</li>
+          <li>Check your posture and lighting to minimize physical triggers.</li>
+          <li>If the pain continues and ibuprofen is suitable for you, one softgel may help provide fast headache relief for many adults when used as directed.</li>
+        </ol>
+      </div>
+      <div class="a-tags"><span class="atag">Pharma OTC Brand</span><span class="atag">Patient-Facing</span><span class="atag">Short-Form</span></div>
+    </div>
+    <div class="acard pharma">
+      <div class="badge bp">HCP Email Copy <span class="lang-dot">EN</span></div>
+      <h3 class="a-title">Welcome to the HCP Portal — Global Pharma Brand, UAE</h3>
+      <div class="excerpt ep">
+        <p><strong>Subject:</strong> Welcome to the HCP Portal</p>
+        <p>Dear Dr. [Doctor's name],</p>
+        <p>Thank you for registering. You are now part of the UAE HCP portal. Through the portal, you can access curated scientific evidence, clinical tools, and educational resources designed to support real-world clinical practice.</p>
+        <p>As a registered healthcare professional, you now have exclusive access to expert insights and clinical resources tailored to your specialty.</p>
+      </div>
+      <div class="a-tags"><span class="atag">Global Pharma Brand</span><span class="atag">HCP Communications</span><span class="atag">Email Copy</span></div>
+    </div>
+  </div>
+
+  <div class="cat-row">
+    <span class="cat-pill cp-device">03 — Medical Devices & Wound Care</span>
+    <span class="cat-line"></span><span class="cat-count">3 pieces</span>
+  </div>
+  <div class="cards" style="margin-bottom:4rem;">
+    <div class="acard device">
+      <div class="badge bd">Clinical Education <span class="lang-dot">EN</span></div>
+      <h3 class="a-title">Why Does Surgery Leave a Scar?</h3>
+      <div class="excerpt ed">
+        <p>Surgery leaves a scar because the skin begins a natural healing process as soon as an incision is made. During this process, the body produces collagen to help close and strengthen the wound.</p>
+        <p>As the scar matures, it may change in color, thickness, and texture over time. If excess collagen builds up, the scar can become raised, thickened, or more visible.</p>
+        <p>Several factors can influence how a scar heals, including <strong>genetics, skin tone, wound location, and post-surgical care.</strong> Starting the right scar care at the right time can play an important role in surgical scar removal.</p>
+      </div>
+      <div class="a-tags"><span class="atag">Medical Device Brand</span><span class="atag">Dermatology</span><span class="atag">Patient Education</span></div>
+    </div>
+    <div class="acard device">
+      <div class="badge bd">Buyer's Guide <span class="lang-dot">EN</span></div>
+      <h3 class="a-title">How to Select the Right Silicone Scar Sheet for Your Surgery Scar</h3>
+      <div class="excerpt ed">
+        <p>Have you ever wondered why some scars heal smoothly while others remain visible for years?</p>
+        <p>You didn't go through surgery just to be left with a scar you want to hide. If your scar looks raised or remains noticeable over time, it can quickly become a daily reminder you weren't expecting.</p>
+        <p>You don't have to "wait and see." Medical-grade silicone scar sheets are the gold standard in modern scar care, clinically proven for both new and existing scars.</p>
+      </div>
+      <div class="a-tags"><span class="atag">Medical Device Brand</span><span class="atag">Wound Care</span><span class="atag">Product Content</span></div>
+    </div>
+    <div class="acard device">
+      <div class="badge bd">Patient Instructions <span class="lang-dot">EN</span></div>
+      <h3 class="a-title">How to Use Your Silicone Scar Sheet: Step-by-Step</h3>
+      <div class="excerpt ed">
+        <p><strong>Step 1: Prepare the Skin</strong><br>Wash your hands and cleanse the scar with mild soap, then pat dry. Keep the area hair-free to help improve adhesion.</p>
+        <p><strong>Step 2: Apply the Sheet</strong><br>Peel off the protective film and trim the sheet to fit your scar. Wear for 20 to 22 hours daily for at least 90 days for optimal results.</p>
+        <p><strong>Step 3: Clean and Reuse</strong><br>Clean daily with mild soap, rinse, and air dry. Replace when adhesion decreases.</p>
+      </div>
+      <div class="a-tags"><span class="atag">Medical Device Brand</span><span class="atag">Patient Instructions</span><span class="atag">Wound Care</span></div>
+    </div>
+  </div>
+
+  <div class="cat-row">
+    <span class="cat-pill cp-arabic">04 — Arabic Content — المحتوى العربي</span>
+    <span class="cat-line"></span><span class="cat-count">1 piece</span>
+  </div>
+  <div class="cards one-col">
+    <div class="acard arabic">
+      <div class="badge ba">Arabic SEO Blog <span class="lang-dot">AR</span></div>
+      <h3 class="a-title rtl">مركز طبي في مطار دبي: كيف يغيّر تجربة السفر؟</h3>
+      <div class="excerpt ea">
+        <p>مطار دبي الدولي لا يتوقف، ملايين المسافرين يعبرونه يومياً قادمين من مناخات وبيئات مختلفة، والجسم لا يتكيّف دائماً بالسرعة ذاتها. الإجهاد، وفارق التوقيت، وضغط الهواء، وساعات الجلوس المتواصلة، كلها عوامل تجعل ظهور أعراض مفاجئة أمراً وارداً أكثر مما يتوقع أي مسافر.</p>
+        <p>المسافر في هذه اللحظات لا يملك وقتاً للبحث عن مركز طبي قريب، رحلته لا تنتظر. المركز الطبي يقع داخل مبنى الركاب 3 مباشرةً ليُغلق هذه الفجوة. رعاية طبية متكاملة في الموقع، دون الحاجة إلى مغادرة المطار أو تعطيل أي خطوات من رحلتك.</p>
+        <p>حين تستدعي الحالة رعاية أعمق، يُتيح قُرب المركز من المستشفى الرئيسي تحويلاً فورياً وسلساً، دقائق تفصل بين المركز والمستشفى، ومنظومة طبية واحدة متكاملة بين الطرفين، بما يضمن استمرارية الرعاية بكفاءة واطمئنان.</p>
+      </div>
+      <div class="a-tags"><span class="atag">UAE Healthcare Brand</span><span class="atag">Arabic SEO</span><span class="atag">Travel Health</span><span class="atag">مركز طبي قريب</span><span class="atag">مطار دبي</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="value">
+  <div>
+    <p class="value-pre">Why it works</p>
+    <h3 class="value-h">The science is in.<br><span>The reader stays in.</span></h3>
+    <p class="value-body">The hardest thing in medical writing isn't accuracy — it's accuracy that doesn't bore people to death. Every piece above was written to pass clinical review AND keep someone scrolling. That balance only comes from someone who's lived on both sides of the prescription counter.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar"><p class="pillar-t">Patients · Travelers · HCPs · Pharma teams</p><p class="pillar-s">I adapt voice and depth for every audience — nothing is one-size-fits-all.</p></div>
+    <div class="pillar"><p class="pillar-t">Long-form · Short-form · Email · Instructions</p><p class="pillar-s">Whatever format the message needs — I write it.</p></div>
+    <div class="pillar"><p class="pillar-t">Arabic & English — written fresh in both</p><p class="pillar-s">Not translated. Not adapted. Fully native in each language.</p></div>
+    <div class="pillar"><p class="pillar-t">OTC pharma · Devices · HCP portals</p><p class="pillar-s">Regulated content handled with accuracy and confidence every time.</p></div>
+  </div>
+</div>
+
+<section class="credentials" id="credentials">
+  <p class="sec-tag">The foundation</p>
+  <h2 class="sec-h">Trained in clinics.<br><em>Sharp at the keyboard.</em></h2>
+  <div class="cred-grid">
+    <div class="cred-card"><span class="cred-yr">2024</span><p class="cred-t">B.Pharm — Pharmaceutical Manufacturing</p><p class="cred-p">Pharos University, Alexandria</p></div>
+    <div class="cred-card"><span class="cred-yr">2024</span><p class="cred-t">Patient Experience & Education Specialist</p><p class="cred-p">Andalusia Roushdy Clinics</p></div>
+    <div class="cred-card"><span class="cred-yr">2023</span><p class="cred-t">Clinical Toxicology Training</p><p class="cred-p">Alexandria Poison Center, El Miri Hospital</p></div>
+    <div class="cred-card"><span class="cred-yr">2022</span><p class="cred-t">Hospital Pharmacy — TPN & Drug Therapy Review</p><p class="cred-p">Al-Andalusia Hospitals</p></div>
+    <div class="cred-card"><span class="cred-yr">★</span><p class="cred-t">Medical Writing Specialization</p><p class="cred-p">Coursera — In Progress</p></div>
+    <div class="cred-card"><span class="cred-yr">2023</span><p class="cred-t">Introduction to Clinical Research Principles</p><p class="cred-p">Coursera</p></div>
+    <div class="cred-card"><span class="cred-yr">2023</span><p class="cred-t">Writing in the Sciences</p><p class="cred-p">Coursera</p></div>
+    <div class="cred-card"><span class="cred-yr">2024</span><p class="cred-t">Microsoft Power BI: Data Analysis & Visualization</p><p class="cred-p">Andalusia</p></div>
+  </div>
+</section>
+
+<div class="skills">
+  <p class="skills-lbl">What I bring</p>
+  <div class="stags">
+    <span class="stag">Evidence-Based Medicine</span><span class="stag">Arabic Medical Writing</span><span class="stag">SEO Content</span><span class="stag">Patient Education</span><span class="stag">Pharmacology</span><span class="stag">Pharma Product Copy</span><span class="stag">HCP Communications</span><span class="stag">Clinical Research</span><span class="stag">Fact-Checking</span><span class="stag">Brand Voice</span><span class="stag">Medical Literature Review</span>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <p class="contact-pre">Let's build something</p>
+    <h2 class="contact-h">Your audience<br>deserves <span>better content.</span></h2>
+    <p class="contact-body">If you need a medical writer who brings clinical credibility, Arabic fluency, and genuine craft to every brief — you've found her. Let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:merihanewees@gmail.com" class="clink">✉ merihanewees@gmail.com</a>
+      <a href="https://linkedin.com/in/merihan-ewees-24bb2b285" target="_blank" class="clink">↗ LinkedIn</a>
+      <a href="tel:+201144062575" class="clink">📞 +20 114 406 2575</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Merihan Emad Ewees — Medical Content Writer</span>
+  <span>Pharmacist · Arabic & English · Alexandria, Egypt</span>
+  <a href="mailto:merihanewees@gmail.com">merihanewees@gmail.com</a>
+</footer>
+
+</body>
+</html>
